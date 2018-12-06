@@ -25,40 +25,40 @@ public class Ball extends Application {
         // =================
         // four buttons
         Button up = new Button("up");
-        AnimationTimer toUp = new AnimationTimer() {
+        MyAnimationTimer toUp = new MyAnimationTimer() {
             @Override
-            public void handle(long now) {
-                ballPane.up();
+            public void move(int v) {
+                ballPane.up(v);
             }
         };
         up.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> toUp.start());
         up.addEventHandler(MouseEvent.MOUSE_RELEASED, e -> toUp.stop());
 
         Button down = new Button("down");
-        AnimationTimer toDown = new AnimationTimer() {
+        MyAnimationTimer toDown = new MyAnimationTimer() {
             @Override
-            public void handle(long now) {
-                ballPane.down();
+            public void move(int v) {
+                ballPane.down(v);
             }
         };
         down.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> toDown.start());
         down.addEventHandler(MouseEvent.MOUSE_RELEASED, e -> toDown.stop());
 
         Button left = new Button("left");
-        AnimationTimer toLeft = new AnimationTimer() {
+        MyAnimationTimer toLeft = new MyAnimationTimer() {
             @Override
-            public void handle(long now) {
-                ballPane.left();
+            public void move(int v) {
+                ballPane.left(v);
             }
         };
         left.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> toLeft.start());
         left.addEventHandler(MouseEvent.MOUSE_RELEASED, e -> toLeft.stop());
 
         Button right = new Button("right");
-        AnimationTimer toRight = new AnimationTimer() {
+        MyAnimationTimer toRight = new MyAnimationTimer() {
             @Override
-            public void handle(long now) {
-                ballPane.right();
+            public void move(int v) {
+                ballPane.right(v);
             }
         };
         right.addEventHandler(MouseEvent.MOUSE_PRESSED, e -> toRight.start());

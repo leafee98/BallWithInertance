@@ -12,21 +12,33 @@ class BallPane extends Pane {
         ball.setCenterX(266);
     }
 
-    public void up() {
-        if (ball.getCenterY() - ball.getRadius() > 1) {
-            ball.setCenterY(ball.getCenterY() - 2);
+    public void up() { this.up(1); }
+    public void up(int v) {
+        if (ball.getCenterY() - ball.getRadius() - v > 1) {
+            ball.setCenterY(ball.getCenterY() - v);
+        } else {
+            ball.setCenterY(2 + ball.getRadius());
         }
     }
-    public void down() {
-        if (ball.getCenterY() + ball.getRadius() < 300)
-            ball.setCenterY(ball.getCenterY() + 2);
+    public void down(int v) {
+        if (ball.getCenterY() + ball.getRadius() + v < 300) {
+            ball.setCenterY(ball.getCenterY() + v);
+        } else {
+            ball.setCenterY(299 - ball.getRadius());
+        }
     }
-    public void right() {
-        if (ball.getCenterX() + ball.getRadius() < 546)
-            ball.setCenterX(ball.getCenterX() + 2);
+    public void right(int v) {
+        if (ball.getCenterX() + ball.getRadius() + v < 546) {
+            ball.setCenterX(ball.getCenterX() + v);
+        } else {
+            ball.setCenterX(545 - ball.getRadius());
+        }
     }
-    public void left() {
-        if (ball.getCenterX() - ball.getRadius() > 14)
-            ball.setCenterX(ball.getCenterX() - 2);
+    public void left(int v) {
+        if (ball.getCenterX() - ball.getRadius() - v > 14) {
+            ball.setCenterX(ball.getCenterX() - v);
+        } else {
+            ball.setCenterX(15 + ball.getRadius());
+        }
     }
 }
