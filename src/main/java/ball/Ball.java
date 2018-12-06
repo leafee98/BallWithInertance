@@ -6,13 +6,9 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.paint.Color;
 import javafx.geometry.Pos;
 
 public class Ball extends Application {
@@ -82,49 +78,5 @@ public class Ball extends Application {
         stage.setResizable(false);
         stage.show();
 
-        // debug
-    }
-}
-
-
-// =============================================================
-// class BallPane
-class BallPane extends Pane {
-    private Circle ball = new Circle(30, Color.rgb(236, 144, 144));
-    public BallPane() {
-        this.getChildren().add(ball);
-        ball.setCenterY(151);
-        ball.setCenterX(266);
-    }
-
-    public void up() {
-        if (ball.getCenterY() - ball.getRadius() > 1) {
-            ball.setCenterY(ball.getCenterY() - 2);
-        }
-    }
-    public void down() {
-        if (ball.getCenterY() + ball.getRadius() < 300)
-            ball.setCenterY(ball.getCenterY() + 2);
-    }
-    public void right() {
-        if (ball.getCenterX() + ball.getRadius() < 546)
-            ball.setCenterX(ball.getCenterX() + 2);
-    }
-    public void left() {
-        if (ball.getCenterX() - ball.getRadius() > 14)
-            ball.setCenterX(ball.getCenterX() - 2);
-    }
-}
-
-
-
-// ============================================================
-// class Frame
-class Frame extends StackPane {
-    public Frame() {
-        super(new Rectangle(534, 302, Color.BLACK),
-                new Rectangle(532, 300, Color.WHITE));
-        // Rectangle rec = new Rectangle(532, 300, Color.WHITE);
-        // Rectangle frame = new Rectangle(534, 302, Color.BLACK);
     }
 }
