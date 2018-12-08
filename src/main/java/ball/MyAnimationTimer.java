@@ -13,11 +13,11 @@ public abstract class MyAnimationTimer extends AnimationTimer {
             if (speedup) {
                 if (v < maxSpeed) {
                     v += 2;
-                    System.out.println("Speed up " + v);
+                    // System.out.println("Speed up " + v);
                 }
             } else {
                 --v;
-                    System.out.println("Speed down " + v);
+                    // System.out.println("Speed down " + v);
             }
             last = now;
         }
@@ -37,18 +37,17 @@ public abstract class MyAnimationTimer extends AnimationTimer {
         //         // take care of this super
         //         super.stop();
         // }
-
     }
     public void start() {
         speedup = true;
         last = 0;
         // take care of this super
         super.start();
-        System.out.println("button pressed");
+        // System.out.println("button pressed");
     }
     public void stop() {
         speedup = false;
-        System.out.println("button released");
+        // System.out.println("button released");
     }
     public abstract void move(int v);
 }

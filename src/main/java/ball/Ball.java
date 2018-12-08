@@ -1,13 +1,18 @@
 package ball;
 
+import com.sun.marlin.TransformingPathConsumer2D;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.FlowPane;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 
 public class Ball extends Application {
@@ -70,6 +75,34 @@ public class Ball extends Application {
         // main pane
         VBox vbox = new VBox(sp, fp);
         vbox.setSpacing(6);
+        vbox.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode().equals(KeyCode.W)) {
+                    toUp.start();
+                } else if (event.getCode().equals(KeyCode.S)) {
+                    toDown.start();
+                } else if (event.getCode().equals(KeyCode.A)) {
+                    toLeft.start();
+                } else if (event.getCode().equals(KeyCode.D)) {
+                    toRight.start();
+                }
+            }
+        });
+        vbox.setOnKeyReleased(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if (event.getCode().equals(KeyCode.W)) {
+                    toUp.stop();
+                } else if (event.getCode().equals(KeyCode.S)) {
+                    toDown.stop();
+                } else if (event.getCode().equals(KeyCode.A)) {
+                    toLeft.stop();
+                } else if (event.getCode().equals(KeyCode.D)) {
+                    toRight.stop();
+                }
+            }
+        });
 
         Scene scene = new Scene(vbox, 560, 340);
         stage.setScene(scene);
